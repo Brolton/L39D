@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <!-- <Dialog Contact="Girlfriend" Topic="Pizza">
+      <Question Text="Luv, pizza's ready^^" Id="1">
+      	<Answer Color="Red" Length="Short" Points="10" Text="Pizza?0_o" NextId="2a"/>
+      	<Answer Color="Yellow" Length="Medium" Points="20" Text="Pizza?0_o" NextId="2b"/>
+      	<Answer Color="Green" Length="Long" Points="30" Text="Pizza?0_o" NextId="2c"/>
+      </Question>
+
+      <Question Text="U forgot, didn't ya?((" Id="2a">
+      	<Answer Color="Red" Length="Short" Points="10" Text="Seems like it" NextId="3a"/>
+      	<Answer Color="Yellow" Length="Medium" Points="20" Text="Ehm, I thought it's tomorrow=_=" NextId="3b"/>
+      	<Answer Color="Green" Length="Long" Points="30" Text="Nononono just kidding. I'm hungry as hell=) cant wait" NextId="3c"/>
+      </Question>
+  </Dialog> -->
+</Root>
