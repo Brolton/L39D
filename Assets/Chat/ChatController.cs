@@ -12,31 +12,12 @@ namespace LudumDare39
         [SerializeField]
         GameObject _msgCellPrefab;
 
+        [SerializeField]
+        AnswerController _answerController;
+
         private List<Question> _messages = new List<Question>();
 
         public void Init()
-        {
-            AddSliders();
-            LoadTablePosition(_tableView);
-        }
-
-        private void OnDestroy()
-        {
-            _tableView.onSelectCell.RemoveAllListeners();
-        }
-
-    	// Use this for initialization
-    	void Start ()
-        {
-    	}
-    	
-    	// Update is called once per frame
-    	void Update () 
-        {
-    		
-    	}
-
-        private void AddSliders()
         {
             _tableView.CellPrefab = _msgCellPrefab;
             _tableView.Init(this, this);
@@ -45,6 +26,14 @@ namespace LudumDare39
             _tableView.onSelectCell.AddListener (OnChooseCurrentCell);
 
             _tableView.ScrollToCell (_tableView.NumberOfRows () - 1);
+
+            LoadTablePosition(_tableView);
+            _answerController.Init();
+        }
+
+        private void OnDestroy()
+        {
+            _tableView.onSelectCell.RemoveAllListeners();
         }
 
         #region ITableViewDataSource
@@ -159,6 +148,21 @@ namespace LudumDare39
         {
             _messages = AppController.Instance.MessagesController.GetMessagesByContact(contactId);
             _tableView.ReloadData();
+
+            if (_messages.Count == 0)
+            {
+                _answerController.gameObject.SetActive(false);
+                return;
+            }
+
+            if (_messages[_messages.Count - 1].GetAnswer() != null)
+            {
+                _answerController.gameObject.SetActive(false);
+                return;
+            }
+
+            _answerController.gameObject.SetActive(true);
+            _answerController.SetAnswers(_messages[_messages.Count - 1].AllAnswers);
         }
     }
 }

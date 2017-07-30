@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using Nekki.Utils;
 
 namespace LudumDare39
 {
@@ -40,7 +41,8 @@ namespace LudumDare39
     {
         public int id;                                  // Id="1"
         public string text;                             // Text="Luv, pizza's ready^^" 
-        public List<Answer> answers = new List<Answer>();
+        public List<Answer> AllAnswers = new List<Answer>();
+        int answer = -1;
 
         public void Parse(XmlNode node)
         {
@@ -50,8 +52,18 @@ namespace LudumDare39
             {
                 Answer newAnswer = new Answer();
                 newAnswer.Parse(answerNode);
-                answers.Add(newAnswer);
+                AllAnswers.Add(newAnswer);
             }
+        }
+
+        public Answer GetAnswer()
+        {
+            if (answer < 0)
+            {
+                return null;
+            }
+            return AllAnswers[answer];
+
         }
     }
     
@@ -84,7 +96,7 @@ namespace LudumDare39
 
         public List<Question> GetMessagesByContact(int contactId)
         {
-            return AllContacts[contactId].AllQuestions;
+            return AllContacts[contactId].SendedQuestions;
         }
     }
 }
