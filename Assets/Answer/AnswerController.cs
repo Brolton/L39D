@@ -65,6 +65,8 @@ namespace LudumDare39
         {
             _availableAnswers[row].ParentQuestion.SetAnswer(row);
             _chatController.ReloadCurrentDialog();
+            int currentContactId = AppController.Instance.GetCurrentContactID();
+            AppController.Instance.SetTimerForContact(currentContactId);
 //            _tableView.ScrollToCell (row, 0.5f);
 //          Log.Write("TableViewDidSelectCellForRow : " + row);
         }

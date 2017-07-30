@@ -20,9 +20,6 @@ public class AppController : MonoBehaviour
     [SerializeField]
     ChatController _chatController;
 
-
-    int frameCounter = 0;
-
     public void Init()
     {
         Instance = this;
@@ -31,20 +28,10 @@ public class AppController : MonoBehaviour
         MessagesController.Init();
         _contactsController.Init(MessagesController.AllContacts);
         _chatController.Init();
-    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        frameCounter++;
-        if (frameCounter % 300 == 0)
+        for (int i = 0; i < MessagesController.AllContacts.Count; i++)
         {
-            SendNextMsgForContact(1);
+            SetTimerForContact(i);
         }
     }
 
@@ -78,5 +65,17 @@ public class AppController : MonoBehaviour
     public int GetCurrentContactID()
     {
         return _contactsController.CurrentContactId;
+    }
+
+    public void SetTimerForContact(int contactId)
+    {
+        float waitSeconds = Random.Range (5f, 15f);
+        StartCoroutine(WaitAndSendMessageForContact(contactId, waitSeconds));
+    }
+
+    IEnumerator WaitAndSendMessageForContact(int contactId, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SendNextMsgForContact(contactId);
     }
 }
