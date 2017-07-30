@@ -21,6 +21,7 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 
         _tableView.CellPrefab = _contactCellPrefab;
         _tableView.Init(this, this);
+        _tableView.GetComponent<TableViewScroll>().enabled = false;
 
 //        _tableView.onSelectCell.AddListener (OnScrollTable);
 //        _tableView.onSelectCell.AddListener (OnChooseCurrentCell);

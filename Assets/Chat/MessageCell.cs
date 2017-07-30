@@ -53,7 +53,7 @@ namespace LudumDare39
             }
             else
             {
-                _cloud.color = Color.green;
+                _cloud.color = new Color(215/255.0f, 237/255.0f, 193/255.0f);
                 _cloud.transform.SetLocalPositionX(-POS_X);
             }
         }

@@ -1,11 +1,11 @@
 <Contacts>
-	<Contact Name="Mom" Pic="mom.png">
+	<Contact Name="Mom" Pic="Mother_Icon">
 		<Dialog File="dialogs_mom_grandpasbirthday.xml"/>
 	</Contact>
-	<Contact Name="Girlfriend" Pic="girlfriend.png">
+	<Contact Name="Girlfriend" Pic="Girlfriend_Icon">
 		<Dialog File="dialogs_girlfriend_pizza.xml"/>
 	</Contact>
-	<Contact Name="Boss" Pic="boss.png">
+	<Contact Name="Boss" Pic="Boss_Icon">
 		<Dialog File="dialogs_boss_presentation.xml"/>
 	</Contact>
 </Contacts>
