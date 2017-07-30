@@ -15,7 +15,9 @@ namespace LudumDare39
         public string AvatarImg = "";
         string dialogFileName = "";
 
-        public List<Question> AllQuestions = new List<Question>();
+        List<Question> AllQuestions = new List<Question>();
+
+        public List<Question> SendedQuestions = new List<Question>();
 
         public void Parse (XmlNode node)
         {
@@ -39,6 +41,43 @@ namespace LudumDare39
                 newQuestion.Parse(questionNode);
                 AllQuestions.Add(newQuestion);
             }
+        }
+
+        public bool SendNextQuestion()
+        {
+            if (SendedQuestions.Count == 0)
+            {
+                SendedQuestions.Add(AllQuestions[0]);
+                return true;
+            }
+
+            Answer lastAnswer = SendedQuestions[SendedQuestions.Count - 1].GetAnswer();
+            if (lastAnswer == null)
+            {
+                return false;
+            }
+
+            int nextQuestionId = lastAnswer.nextQuestionId;
+            if (nextQuestionId < 0)
+            {
+                return false;
+            }
+
+            Question newQuestion = GetQuestionById(nextQuestionId);
+            SendedQuestions.Add(newQuestion);
+            return true;
+        }
+
+        Question GetQuestionById(int questionId)
+        {
+            for (int i = 0; i < AllQuestions.Count; i++)
+            {
+                if (AllQuestions[i].id == questionId)
+                {
+                    return AllQuestions[i];
+                }
+            }
+            return null;
         }
     }
 }

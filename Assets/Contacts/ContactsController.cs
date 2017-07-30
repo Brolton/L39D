@@ -72,4 +72,10 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
     }
 
     #endregion
+
+
+    public void TurnOnIndicatorForContact(int contactId)
+    {
+        _tableView.CellForRow(contactId).GetComponent<ContactCell>().TurnOnIndicator();
+    }
 }

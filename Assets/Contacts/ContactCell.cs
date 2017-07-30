@@ -41,6 +41,7 @@ public class ContactCell : TableViewCell
     public override void SetSelected()
     {
         //          print("CellSetSelected : " + RowNumber);
+        _msgIndicator.gameObject.SetActive(false);
     }
 
     public override void Display()
@@ -49,4 +50,9 @@ public class ContactCell : TableViewCell
     }
 
     #endregion
+
+    public void TurnOnIndicator()
+    {
+        _msgIndicator.gameObject.SetActive(true);
+    }
 }

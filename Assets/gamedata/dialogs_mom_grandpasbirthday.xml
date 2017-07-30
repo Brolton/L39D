@@ -1,21 +1,21 @@
 <Dialog Contact="Mom" Topic="Grandpa's Birthday">
 
 	<Question Text="How is your day, dear?=) We're waiting for you. Grandpa's will be happy to see you on his birthday party!" Id="s1">
-		<Answer Color="Red" Length="Short" Points="10" Text="ok, as usual" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="Fine, nothing special" NextId=""/>
+		<Answer Color="Red" Length="Short" Points="10" Text="ok, as usual" NextId="p1"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Fine, nothing special" NextId="p1"/>
 		<Answer Color="Green" Length="Long" Points="30" Text="Couldn't be better. Got everything i need. Heading your way." NextId="p1"/>
 	</Question>
 
 	<Question Text="Glad to hear, have you got a watch?" Id="p1">
-		<Answer Color="Red" Length="Short" Points="10" Text="Goddammit" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="A present you mean? Seems like it." NextId=""/>
+		<Answer Color="Red" Length="Short" Points="10" Text="Goddammit" NextId="b1"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="A present you mean? Seems like it." NextId="p2"/>
 		<Answer Color="Green" Length="Long" Points="30" Text="Ofc, we bought them together, how could i forget?=)" NextId="p2"/>
 	</Question>
 
 	<Question Text="Ok. Your brother's already here." Id="p2">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId="p3"/>
+		<Answer Color="Red" Length="Short" Points="10" Text="Oh no. Not him" NextId="n3"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="'Test your patience!'... Alright" NextId="n3"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="At last! We'll reunite with my ol' bro =))" NextId="p3"/>
 	</Question>
 
 	<Question Text="Have to make a salad. See you, dear!" Id="p3">
@@ -24,52 +24,52 @@
 		<Answer Color="Green" Length="Long" Points="30" Text="I'll be in a few minutes;)" NextId="end"/>
 	</Question>
 
-	<Question Text="Oh, you left in the house?(" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="think so" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="Yes, I can bring it next time" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="Oh, you left it in the house?(" Id="b1">
+		<Answer Color="Red" Length="Short" Points="10" Text="think so" NextId="b2"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Yes, I can bring it next time" NextId="p2"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="I'll return for it before coming to party, np!" NextId="p2"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="Son, you have to give at least smth to show you care:(" Id="b2">
+		<Answer Color="Red" Length="Short" Points="10" Text="nah i dont" NextId="b3"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="it's just a trinket. come on" NextId="n1"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Ok, u'r right i'll take it and be right back =_=" NextId="p2"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="What r u talking about? Don't let us down this time, please." Id="b3">
+		<Answer Color="Red" Length="Short" Points="10" Text="shite we always argue" NextId="b4"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Seems like u r not in the mood for me" NextId="b4"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="I won't i swear! Christ, everything's gonna be alright, promise." NextId="p2"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="Don't bother. We'll be fine without you this time." Id="b4">
+		<Answer Color="Red" Length="Short" Points="10" Text="as u wish" NextId="end"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="I didn't as you could notice" NextId="end"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="What's your problem? I wanna see grandpa even without a present" NextId="end"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="Don't argue with parents!" Id="n1">
+		<Answer Color="Red" Length="Short" Points="10" Text="I'd better stay home then" NextId="b4"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="I'm really tired of these arguments actually" NextId="n2"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Mom, I'm very sorry, ok? Didn't want to mess things up." NextId="p2"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="You don't want to come today, do you?>:(" Id="n2">
+		<Answer Color="Red" Length="Short" Points="10" Text="Exactly" NextId="b4"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="I'm considering my options" NextId="b3"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="I do, I do, alright? Just really hard day and my phone is a mess" NextId="p2"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="Why? He's your family." Id="n3">
+		<Answer Color="Red" Length="Short" Points="10" Text="But not my friend." NextId="b3"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Kidding. Family's family, right?)" NextId="p3"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="He drew me into the development of some shitty typing simulator with a phone running out of power." NextId="p4"/>
 	</Question>
 
-	<Question Text="" Id="">
-		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
-		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	<Question Text="[MAJOR TEMPORAL PARADOX]" Id="p4">
+		<Answer Color="Red" Length="Short" Points="10" Text="Meh, wrong button?" NextId="end"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Seems like I broke smth in the end 0_o" NextId="end"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="And you will change spatio temporal continuum yadda yadda..." NextId="end"/>
 	</Question>
 
 </Dialog>

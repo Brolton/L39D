@@ -20,6 +20,9 @@ public class AppController : MonoBehaviour
     [SerializeField]
     ChatController _chatController;
 
+
+    int frameCounter = 0;
+
     public void Init()
     {
         Instance = this;
@@ -36,9 +39,14 @@ public class AppController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        frameCounter++;
+        if (frameCounter % 5*60 == 0)
+        {
+            SendNextMsgForContact(1);
+        }
+    }
 
     public void OnContactClick(int contactId)
     {
@@ -49,5 +57,14 @@ public class AppController : MonoBehaviour
         }
 
         _chatController.SetCurrentContact(contactId);
+    }
+
+    public void SendNextMsgForContact(int contactId)
+    {
+        bool needIndicate = MessagesController.AllContacts[contactId].SendNextQuestion();
+        if (needIndicate)
+        {
+            _contactsController.TurnOnIndicatorForContact(contactId);
+        }
     }
 }
