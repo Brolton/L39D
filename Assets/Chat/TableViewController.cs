@@ -62,7 +62,7 @@ namespace LudumDare39
 
         public void TableViewDidSelectCellForRow(TableView tableView, int row)
         {
-            _tableView.ScrollToCell (row, 0.5f);
+//            _tableView.ScrollToCell (row, 0.5f);
             //          Log.Write("TableViewDidSelectCellForRow : " + row);
         }
 
