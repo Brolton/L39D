@@ -13,6 +13,8 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 
     private List<ContactData> _contacts;
 
+    public int CurrentContactId = -1;
+
     public void Init(List<ContactData> contacts)
     {
         _contacts = contacts;
@@ -65,6 +67,7 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 
     public void TableViewDidSelectCellForRow(TableView tableView, int row)
     {
+        CurrentContactId = row;
         AppController.Instance.OnContactClick(row);
 //        _tableView.ScrollToCell (row, 0.5f);
         //          Log.Write("TableViewDidSelectCellForRow : " + row);

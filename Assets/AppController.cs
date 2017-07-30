@@ -42,7 +42,7 @@ public class AppController : MonoBehaviour
 	void Update ()
     {
         frameCounter++;
-        if (frameCounter % 5*60 == 0)
+        if (frameCounter % 300 == 0)
         {
             SendNextMsgForContact(1);
         }
@@ -64,7 +64,19 @@ public class AppController : MonoBehaviour
         bool needIndicate = MessagesController.AllContacts[contactId].SendNextQuestion();
         if (needIndicate)
         {
-            _contactsController.TurnOnIndicatorForContact(contactId);
+            if (GetCurrentContactID() != contactId)
+            {
+                _contactsController.TurnOnIndicatorForContact(contactId);
+            }
+            else
+            {
+                _chatController.SetCurrentContact(contactId);
+            }
         }
+    }
+
+    public int GetCurrentContactID()
+    {
+        return _contactsController.CurrentContactId;
     }
 }

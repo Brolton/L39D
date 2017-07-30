@@ -57,22 +57,30 @@ namespace LudumDare39
                 return false;
             }
 
-            int nextQuestionId = lastAnswer.nextQuestionId;
-            if (nextQuestionId < 0)
+            string nextQuestionId = lastAnswer.NextQuestionId;
+            if (nextQuestionId == "" ||
+                nextQuestionId == "end" ||
+                nextQuestionId == "END")
             {
                 return false;
             }
 
             Question newQuestion = GetQuestionById(nextQuestionId);
+
+            if (newQuestion == null)
+            {
+                return false;
+            }
+
             SendedQuestions.Add(newQuestion);
             return true;
         }
 
-        Question GetQuestionById(int questionId)
+        Question GetQuestionById(string questionId)
         {
             for (int i = 0; i < AllQuestions.Count; i++)
             {
-                if (AllQuestions[i].id == questionId)
+                if (AllQuestions[i].Id == questionId)
                 {
                     return AllQuestions[i];
                 }

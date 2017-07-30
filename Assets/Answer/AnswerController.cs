@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Nekki.SF2.GUI;
 
 namespace LudumDare39
@@ -15,10 +16,14 @@ namespace LudumDare39
 
         private List<Answer> _availableAnswers = new List<Answer>();
 
-        public void Init()
+        ChatController _chatController;
+
+        public void Init(ChatController chatController)
         {
+            _chatController = chatController;
             _tableView.CellPrefab = _answerCellPrefab;
             _tableView.Init(this, this);
+            _tableView.GetComponent<TableViewScroll>().enabled = false;
         }
 
         #region ITableViewDataSource
@@ -37,11 +42,11 @@ namespace LudumDare39
         {
             TableViewCell cell = tableView.ReusableCellForRow(row);
             AnswerCell answerCell = cell.GetComponent<AnswerCell>();
-            //            displayItem.BaseSize = Constants.SEAL_SIZE;
-            //            displayItem.IconPanelActive = false;
-            //            ItemInfo itemInfo = _sealsItems[row].ItemInfo;
-            //            displayItem.SetItemInfo(itemInfo);
-            //              displayItem->setActive(true);
+//            displayItem.BaseSize = Constants.SEAL_SIZE;
+//            displayItem.IconPanelActive = false;
+//            ItemInfo itemInfo = _sealsItems[row].ItemInfo;
+//            displayItem.SetItemInfo(itemInfo);
+//              displayItem->setActive(true);
             answerCell.UpdateAnswer(_availableAnswers[row]);
 
             return cell;
@@ -53,13 +58,15 @@ namespace LudumDare39
 
         public void TableViewDidHighlightCellForRow(TableView tableView, int row)
         {
-            //          Log.Write("TableViewDidHighlightCellForRow : " + row);
+//          Log.Write("TableViewDidHighlightCellForRow : " + row);
         }
 
         public void TableViewDidSelectCellForRow(TableView tableView, int row)
         {
-            //            _tableView.ScrollToCell (row, 0.5f);
-            //          Log.Write("TableViewDidSelectCellForRow : " + row);
+            _availableAnswers[row].ParentQuestion.SetAnswer(row);
+            _chatController.ReloadCurrentDialog();
+//            _tableView.ScrollToCell (row, 0.5f);
+//          Log.Write("TableViewDidSelectCellForRow : " + row);
         }
 
         #endregion
@@ -68,6 +75,7 @@ namespace LudumDare39
         {
             _availableAnswers = answers;
             _tableView.ReloadData();
+            _tableView.ScrollToCell ((answers.Count ) / 2);
         }
     }
 }

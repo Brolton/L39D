@@ -8,8 +8,12 @@ namespace LudumDare39
 {
     public class MessageCell : TableViewCell
     {
+        const int POS_X = 38;
+
         [SerializeField]
         UnityEngine.UI.Text _text;
+        [SerializeField]
+        Image _cloud;
 
         #region TableViewCell
 
@@ -38,9 +42,20 @@ namespace LudumDare39
 
         #endregion
 
-        public void UpdateMsg(string text)
+        public void UpdateMsg(MessageData msgData)
         {
-            _text.text = text;
+            _text.text = msgData.Text;
+
+            if (msgData.IsMine)
+            {
+                _cloud.color = Color.white;
+                _cloud.transform.SetLocalPositionX(POS_X);
+            }
+            else
+            {
+                _cloud.color = Color.green;
+                _cloud.transform.SetLocalPositionX(-POS_X);
+            }
         }
     }
 }

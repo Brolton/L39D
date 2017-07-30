@@ -25,7 +25,8 @@ namespace LudumDare39
         public AnswerLength length;    // Length="Short" 
         public int points;             // Points="10"
         public string text;            // Text="Pizza?0_o" 
-        public int nextQuestionId;     // NextId="2a"
+        public string NextQuestionId;     // NextId="2a"
+        public Question ParentQuestion;
 
         public void Parse(XmlNode node)
         {
@@ -33,25 +34,26 @@ namespace LudumDare39
 //            length = node.Attributes["Length"].AsString("");
             points = node.Attributes["Points"].AsInt(0);
             text = node.Attributes["Text"].AsString("");
-            nextQuestionId = node.Attributes["NextId"].AsInt(-1);
+            NextQuestionId = node.Attributes["NextId"].AsString("");
         }
     }
 
     public class Question
     {
-        public int id;                                  // Id="1"
+        public string Id;                                  // Id="1"
         public string text;                             // Text="Luv, pizza's ready^^" 
         public List<Answer> AllAnswers = new List<Answer>();
         int answer = -1;
 
         public void Parse(XmlNode node)
         {
-            id = node.Attributes["Id"].AsInt(0);
+            Id = node.Attributes["Id"].AsString("");
             text = node.Attributes["Text"].AsString("");
             foreach (XmlNode answerNode in node.ChildNodes)
             {
                 Answer newAnswer = new Answer();
                 newAnswer.Parse(answerNode);
+                newAnswer.ParentQuestion = this;
                 AllAnswers.Add(newAnswer);
             }
         }
@@ -64,6 +66,11 @@ namespace LudumDare39
             }
             return AllAnswers[answer];
 
+        }
+
+        public void SetAnswer(int answerId)
+        {
+            answer = answerId;
         }
     }
     

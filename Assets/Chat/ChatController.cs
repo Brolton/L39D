@@ -5,6 +5,18 @@ using Nekki.SF2.GUI;
 
 namespace LudumDare39
 {
+    public class MessageData
+    {
+        public bool IsMine;
+        public string Text;
+
+        public MessageData(bool isMine, string text)
+        {
+            IsMine = isMine;
+            Text = text;
+        }
+    }
+
     public class ChatController : MonoBehaviour, ITableViewDataSource, ITableViewDelegate
     {
         [SerializeField]
@@ -15,7 +27,7 @@ namespace LudumDare39
         [SerializeField]
         AnswerController _answerController;
 
-        private List<Question> _messages = new List<Question>();
+        private List<MessageData> _messages = new List<MessageData>();
 
         public void Init()
         {
@@ -28,7 +40,7 @@ namespace LudumDare39
             _tableView.ScrollToCell (_tableView.NumberOfRows () - 1);
 
             LoadTablePosition(_tableView);
-            _answerController.Init();
+            _answerController.Init(this);
         }
 
         private void OnDestroy()
@@ -57,7 +69,7 @@ namespace LudumDare39
             //            ItemInfo itemInfo = _sealsItems[row].ItemInfo;
             //            displayItem.SetItemInfo(itemInfo);
             //              displayItem->setActive(true);
-            msgCell.UpdateMsg(_messages[row].text);
+            msgCell.UpdateMsg(_messages[row]);
 
             return cell;
         }
@@ -78,22 +90,6 @@ namespace LudumDare39
         }
 
         #endregion
-
-//        void GetMessages()
-//        {
-//            //            Roster roster = ListSF.Roster;
-//            //            List<UserItem> items = roster.UserItems.GetUserItemsByType(ItemInfo.TYPE_ITEM_SEALS);
-//            //            foreach (UserItem item in items) {
-//            //                if (item.Count != 0) {
-//            //                    _sealsItems.Add (item);
-//            //                }
-//            //            }
-//            List<Question> Questions = MessageController.AllQuestions;
-//            for (int i = 0; i < Questions.Count; i++)
-//            {
-//                _messages.Add(Questions[i]);
-//            }
-//        }
 
         private void LoadTablePosition(TableView table)
         {
@@ -146,23 +142,47 @@ namespace LudumDare39
 
         public void SetCurrentContact(int contactId)
         {
-            _messages = AppController.Instance.MessagesController.GetMessagesByContact(contactId);
-            _tableView.ReloadData();
+            _messages.Clear();
+            List<Question> sendedQuestions = AppController.Instance.MessagesController.GetMessagesByContact(contactId);
 
-            if (_messages.Count == 0)
+            for(int i = 0; i < sendedQuestions.Count; i++) 
+            {
+                Question sendedQuestion = sendedQuestions[i];
+                
+                MessageData newContactMsg = new MessageData(false, sendedQuestion.text);
+                _messages.Add(newContactMsg);
+
+                if (sendedQuestion.GetAnswer() != null)
+                {
+                    MessageData newMyMsg = new MessageData(true, sendedQuestion.GetAnswer().text);
+                    _messages.Add(newMyMsg);
+                }
+            }
+
+
+            _tableView.ReloadData();
+            _tableView.ScrollToCell (_messages.Count - 1);
+
+            if (sendedQuestions.Count == 0)
             {
                 _answerController.gameObject.SetActive(false);
                 return;
             }
 
-            if (_messages[_messages.Count - 1].GetAnswer() != null)
+            if (sendedQuestions[sendedQuestions.Count - 1].GetAnswer() != null)
             {
                 _answerController.gameObject.SetActive(false);
                 return;
             }
 
             _answerController.gameObject.SetActive(true);
-            _answerController.SetAnswers(_messages[_messages.Count - 1].AllAnswers);
+            _answerController.SetAnswers(sendedQuestions[sendedQuestions.Count - 1].AllAnswers);
+        }
+
+        public void ReloadCurrentDialog()
+        {
+            int currentContactID = AppController.Instance.GetCurrentContactID();
+            SetCurrentContact(currentContactID);
         }
     }
 }
