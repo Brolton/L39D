@@ -43,7 +43,8 @@ namespace LudumDare39
         public string Id;                                  // Id="1"
         public string text;                             // Text="Luv, pizza's ready^^" 
         public List<Answer> AllAnswers = new List<Answer>();
-        int answer = -1;
+        int _answerId = -1;
+        public string AnswerStr = "";
 
         public void Parse(XmlNode node)
         {
@@ -60,17 +61,22 @@ namespace LudumDare39
 
         public Answer GetAnswer()
         {
-            if (answer < 0)
+            if (_answerId < 0)
             {
                 return null;
             }
-            return AllAnswers[answer];
+            return AllAnswers[_answerId];
 
         }
 
-        public void SetAnswer(int answerId)
+        public void SetAnswerId(int answerId)
         {
-            answer = answerId;
+            _answerId = answerId;
+        }
+
+        public void SetAnswerText(string answerStr)
+        {
+            AnswerStr = answerStr;
         }
     }
     
