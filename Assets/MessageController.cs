@@ -57,18 +57,34 @@ namespace LudumDare39
     
     public class MessageController
     {
-        public static List<Question> AllQuestions = new List<Question>();
+        public List<ContactData> AllContacts = new List<ContactData>();
 
-        public static void ParseXml(XmlDocument doc)
+        public void Init()
         {
-//            var nodeRoot = doc["Root"];
-            var nodeDialog = doc["Dialog"];
-            foreach (XmlNode questionNode in nodeDialog.ChildNodes)
+//            XmlDocument doc= new XmlDocument();
+//            doc.Load( Application.dataPath + "/dialogs_with_ids.xml" );
+//            //            XmlDocument _docQuests = XmlUtils.OpenXMLDocument(SF2Paths.GameData, "dialogs_with_ids.xml");
+//            ParseXml(doc);
+
+            XmlDocument doc= new XmlDocument();
+            doc.Load( Application.dataPath + "/gamedata/contacts.xml" );
+            ParseContacts(doc);
+        }
+
+        void ParseContacts(XmlDocument doc)
+        {
+            var nodeRoot = doc["Contacts"];
+            foreach (XmlNode contactNode in nodeRoot.ChildNodes)
             {
-                Question newQuestion = new Question();
-                newQuestion.Parse(questionNode);
-                AllQuestions.Add(newQuestion);
+                ContactData newContact = new ContactData();
+                newContact.Parse(contactNode);
+                AllContacts.Add(newContact);
             }
+        }
+
+        public List<Question> GetMessagesByContact(int contactId)
+        {
+            return AllContacts[contactId].AllQuestions;
         }
     }
 }

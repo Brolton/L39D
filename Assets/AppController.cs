@@ -6,6 +6,10 @@ using LudumDare39;
 
 public class AppController : MonoBehaviour 
 {
+    public static AppController Instance;
+
+    public MessageController MessagesController;
+
     [SerializeField]
     GameObject _rules;
     bool _rulesIsOpened = true;
@@ -18,12 +22,11 @@ public class AppController : MonoBehaviour
 
     public void Init()
     {
-        _contactsController.Init();
+        Instance = this;
 
-        XmlDocument doc= new XmlDocument();
-        doc.Load( Application.dataPath + "/dialogs_with_ids.xml" );
-        //            XmlDocument _docQuests = XmlUtils.OpenXMLDocument(SF2Paths.GameData, "dialogs_with_ids.xml");
-        MessageController.ParseXml(doc);
+        MessagesController = new MessageController();
+        MessagesController.Init();
+        _contactsController.Init(MessagesController.AllContacts);
         _chatController.Init();
     }
 
@@ -37,12 +40,14 @@ public class AppController : MonoBehaviour
 		
 	}
 
-    void OnContactClick()
+    public void OnContactClick(int contactId)
     {
         if (_rulesIsOpened)
         {
             _rulesIsOpened = false;
             _rules.gameObject.SetActive(false);
         }
+
+        _chatController.SetCurrentContact(contactId);
     }
 }

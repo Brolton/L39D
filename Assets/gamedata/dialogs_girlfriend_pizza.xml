@@ -1,0 +1,75 @@
+<Dialog Contact="Girlfriend" Topic="Pizza">
+
+	<Question Text="Luv, pizza's ready^^" Id="1">
+		<Answer Color="Red" Length="Short" Points="10" Text="Pizza?0_o" NextId="2a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="What do u mean?? Where r u?" NextId="2a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="!@#$% I fucked up pretty hard =[[[[" NextId="2a"/>
+	</Question>
+
+	<Question Text="U forgot, didn't ya?((" Id="2a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Seems like it" NextId="3a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Ehm, I thought it's tomorrow=_=" NextId="5a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Nononono just kidding. I'm hungry as hell=) cant wait" NextId="10a"/>
+	</Question>
+
+	<Question Text="...Alright i'll eat it myself_(" Id="3a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Don't champ=P" NextId="4a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="I cant come today. Maybe next time?" NextId="6a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Nononono just kidding. I'm hungry as hell=) cant wait" NextId="10a"/>
+	</Question>
+
+	<Question Text="What?!" Id="4a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Just not hungry" NextId="5a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="What what? What do u mean exactly?" NextId="5b"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="My bad prank sry. Half way thru. U won't even need to warm our meal;)" NextId="10a"/>
+	</Question>
+
+	<Question Text="Will u come today or...?" Id="5a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Dunno babe" NextId="6a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="I don't think so, sorry" NextId="6b"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Ofc! Didn't want to let u down, hon. On my way=***" NextId="10a"/>
+	</Question>
+
+	<Question Text="I'm crying" Id="6a">
+		<Answer Color="Red" Length="Short" Points="10" Text="And i'm not=PP" NextId="7a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Didn't want to do it this way" NextId="12a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Jeez dont. Didnt mean to harm you... Is pizza still warm?" NextId="11a"/>
+	</Question>
+
+	<Question Text="Don't do this to me" Id="7a">
+		<Answer Color="Red" Length="Short" Points="10" Text="'Just do it'=D" NextId="8a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="We have to figure this out" NextId="12a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Yeah I'm asshole but it's not you, just a lot of messages right now" NextId="11a"/>
+	</Question>
+
+	<Question Text="You bastard! I loved u.. I cooked for u. Why are you so cruel?!!? I give up on you. Can't bond myself with such an asshole?((" Id="8a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Feelings mutual" NextId="end"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Sry for that. Just dunno how to quit properly" NextId="end"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Aaah god. You deserve someone better. I wish you find someone. Bye" NextId="end"/>
+	</Question>
+
+	<Question Text="Waiting for ya, I'll download smth to watch. Cya=*" Id="9a">
+		<Answer Color="Red" Length="Short" Points="10" Text="No toons plz +_=" NextId="end"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Half way thru, cya dear!" NextId="end"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="=**Looking forward to a hug=^___^=" NextId="end"/>
+	</Question>
+
+	<Question Text="U scared me! Bad boy, come to my place;)" Id="10a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Nah. Can't do that" NextId="8a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="As u wish, my one and only;)" NextId="9a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="U'r not the type who gets scared so easily=) Be right there" NextId="9a"/>
+	</Question>
+
+	<Question Text="Dont fucking ever talk to me like this!!!!" Id="11a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Awwww u xD" NextId="8a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Dont think I'll do actually." NextId="12a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Wow-wow easy, hot head. I'm coming=)" NextId="10a"/>
+	</Question>
+
+	<Question Text="Doesn't sound good at all :__(((((" Id="12a">
+		<Answer Color="Red" Length="Short" Points="10" Text="Coz i quit. Have a nice day" NextId="8a"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="We have to end this. I understand it's hard but can't. No more" NextId="8a"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Why? Just thought there is a misunderstanding. I guess we should talk. Everything's gonna be ok" NextId="10a"/>
+	</Question>
+
+</Dialog>

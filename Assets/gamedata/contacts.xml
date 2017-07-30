@@ -1,0 +1,11 @@
+<Contacts>
+	<Contact Name="Mom" Pic="mom.png">
+		<Dialog File="dialogs_mom_grandpasbirthday.xml"/>
+	</Contact>
+	<Contact Name="Girlfriend" Pic="girlfriend.png">
+		<Dialog File="dialogs_girlfriend_pizza.xml"/>
+	</Contact>
+	<Contact Name="Boss" Pic="boss.png">
+		<Dialog File="dialogs_boss_presentation.xml"/>
+	</Contact>
+</Contacts>

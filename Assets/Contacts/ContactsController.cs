@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Nekki.SF2.GUI;
+using LudumDare39;
 
 public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableViewDelegate
 {
@@ -10,11 +11,11 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
     [SerializeField]
     GameObject _contactCellPrefab;
 
-    private List<string> _contacts = new List<string>();
+    private List<ContactData> _contacts;
 
-    public void Init()
+    public void Init(List<ContactData> contacts)
     {
-        GetContacts();
+        _contacts = contacts;
 
         _tableView.CellPrefab = _contactCellPrefab;
         _tableView.Init(this, this);
@@ -25,29 +26,6 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
         _tableView.ScrollToCell (_tableView.NumberOfRows () - 1);
 
 //        LoadTablePosition(_tableView);
-    }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void GetContacts()
-    {
-//        List<Question> Questions = MessageController.AllQuestions;
-//        for (int i = 0; i < Questions.Count; i++)
-//        {
-//            _messages.Add(Questions[i]);
-//        }
-        for (int i = 1; i <= 5; i++)
-        {
-            _contacts.Add ("Name " + i);
-        }
     }
 
     #region ITableViewDataSource
@@ -87,8 +65,10 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 
     public void TableViewDidSelectCellForRow(TableView tableView, int row)
     {
+        AppController.Instance.OnContactClick(row);
 //        _tableView.ScrollToCell (row, 0.5f);
         //          Log.Write("TableViewDidSelectCellForRow : " + row);
+
     }
 
     #endregion

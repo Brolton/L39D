@@ -1,0 +1,75 @@
+<Dialog Contact="Mom" Topic="Grandpa's Birthday">
+
+	<Question Text="How is your day, dear?=) We're waiting for you. Grandpa's will be happy to see you on his birthday party!" Id="s1">
+		<Answer Color="Red" Length="Short" Points="10" Text="ok, as usual" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Fine, nothing special" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Couldn't be better. Got everything i need. Heading your way." NextId="p1"/>
+	</Question>
+
+	<Question Text="Glad to hear, have you got a watch?" Id="p1">
+		<Answer Color="Red" Length="Short" Points="10" Text="Goddammit" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="A present you mean? Seems like it." NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Ofc, we bought them together, how could i forget?=)" NextId="p2"/>
+	</Question>
+
+	<Question Text="Ok. Your brother's already here." Id="p2">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId="p3"/>
+	</Question>
+
+	<Question Text="Have to make a salad. See you, dear!" Id="p3">
+		<Answer Color="Red" Length="Short" Points="10" Text="Bye" NextId="end"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="See you, Mom!" NextId="end"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="I'll be in a few minutes;)" NextId="end"/>
+	</Question>
+
+	<Question Text="Oh, you left in the house?(" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="think so" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="Yes, I can bring it next time" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+	<Question Text="" Id="">
+		<Answer Color="Red" Length="Short" Points="10" Text="" NextId=""/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="" NextId=""/>
+		<Answer Color="Green" Length="Long" Points="30" Text="" NextId=""/>
+	</Question>
+
+</Dialog>

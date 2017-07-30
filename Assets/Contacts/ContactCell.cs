@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Nekki.SF2.GUI;
+using LudumDare39;
 
 public class ContactCell : TableViewCell
 {
@@ -10,10 +11,14 @@ public class ContactCell : TableViewCell
     Image _avatar;
     [SerializeField]
     UnityEngine.UI.Text _name;
+    [SerializeField]
+    Image _msgIndicator;
 
-    public void Init(string name)
+    public void Init(ContactData contactData)
     {
-        _name.text = name;
+//        _avatar.sprite = Resources.Load<Sprite>(contactData.AvatarImg);
+        _name.text = contactData.Name;
+        _msgIndicator.gameObject.SetActive(false);
     }
 
 	// Use this for initialization
