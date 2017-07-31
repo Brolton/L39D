@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Nekki.SF2.GUI
+namespace Brolton.GUI
 {
 	public class TableViewScroll : ScrollRect
     {

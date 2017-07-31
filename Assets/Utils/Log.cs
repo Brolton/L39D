@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Nekki.Utils
+namespace Brolton.Utils
 {
     public static class Log
     {

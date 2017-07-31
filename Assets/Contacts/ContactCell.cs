@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Nekki.SF2.GUI;
+using Brolton.GUI;
 using LudumDare39;
 
 public class ContactCell : TableViewCell

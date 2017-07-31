@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Nekki.SF2.GUI;
+using Brolton.GUI;
 
 namespace LudumDare39
 {
@@ -179,7 +179,7 @@ namespace LudumDare39
 
             _tableView.ScrollToCell (_messages.Count - 1);
             _answerController.gameObject.SetActive(true);
-            _answerController.SetAnswers(sendedQuestions[sendedQuestions.Count - 1].AllAnswers);
+            _answerController.SetAnswers(sendedQuestions[sendedQuestions.Count - 1].AllAnswers, sendedQuestions.Count);
         }
 
         public void ReloadCurrentDialog()

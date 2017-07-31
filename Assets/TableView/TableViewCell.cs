@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Nekki.SF2.GUI
+namespace Brolton.GUI
 {
     [Serializable]
     public class TableViewCellDidSelectEvent : UnityEvent<int>

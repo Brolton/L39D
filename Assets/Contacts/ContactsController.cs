@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Nekki.SF2.GUI;
+using Brolton.GUI;
 using LudumDare39;
 
 public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableViewDelegate

@@ -69,7 +69,9 @@ public class AppController : MonoBehaviour
 
     public void SetTimerForContact(int contactId)
     {
-        float waitSeconds = Random.Range (5f, 15f);
+        float minTime = Settings.MinTimeForNewMsg;
+        float maxTime = Settings.MaxTimeForNewMsg;
+        float waitSeconds = Random.Range (minTime, maxTime);
         StartCoroutine(WaitAndSendMessageForContact(contactId, waitSeconds));
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Nekki.SF2.GUI;
+using Brolton.GUI;
 
 namespace LudumDare39
 {

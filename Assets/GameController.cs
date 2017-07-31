@@ -8,12 +8,16 @@ namespace LudumDare39
     public class GameController : MonoBehaviour
     {
         [SerializeField]
+        PhoneStatistic _phoneStatistic;
+        [SerializeField]
         AppController _appController;
 
 
     	// Use this for initialization
     	void Start ()
         {
+            Settings.Init();
+            _phoneStatistic.Init();
             _appController.Init();
     	}
     	

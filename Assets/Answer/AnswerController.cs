@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Nekki.SF2.GUI;
+using Brolton.GUI;
 
 namespace LudumDare39
 {
@@ -27,6 +27,8 @@ namespace LudumDare39
 
         [SerializeField]
         TimerController _timer;
+
+        int _questionNumber = 1;
 
         public void Init(ChatController chatController)
         {
@@ -85,20 +87,24 @@ namespace LudumDare39
             _inputField.text = "";
             _inputField.ActivateInputField();
             _timer.gameObject.SetActive(true);
-            _timer.StartTimer(_choosedAnswer.text.Length * 1.0f);
+
+            float timeForOneSymbol = Settings.StartTimeForOneSymbol - (_questionNumber - 1) * Settings.DeltaTimeForOneSymbol;
+            _timer.StartTimer(_choosedAnswer.text.Length * timeForOneSymbol);
         }
 
         #endregion
 
-        public void SetAnswers(List<Answer> answers)
+        public void SetAnswers(List<Answer> answers, int questionNumber)
         {
+            _questionNumber = questionNumber;
+
             _tableView.transform.parent.gameObject.SetActive(true);
             _choosedAnswer.transform.parent.gameObject.SetActive(false);
             _timer.gameObject.SetActive(false);
 
             _availableAnswers = answers;
             _tableView.ReloadData();
-            _tableView.ScrollToCell ((answers.Count ) / 2);
+            _tableView.ScrollToCell (answers.Count / 2);
         }
 
         void OnInputChanged(string str)
@@ -122,6 +128,7 @@ namespace LudumDare39
                 return;
             }
 
+            _timer.StopTimer();
             _timer.gameObject.SetActive(false);
             _availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerId(_choosedAnswerId);
             _availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerText(_inputField.text);

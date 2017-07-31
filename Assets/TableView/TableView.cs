@@ -6,9 +6,9 @@ using UnityEngine.Events;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 using DG.Tweening;
-//using Nekki.Utils;
+//using Brolton.Utils;
 
-namespace Nekki.SF2.GUI
+namespace Brolton.GUI
 {
     public enum TableViewOrientation
     {

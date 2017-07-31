@@ -1,4 +1,4 @@
-﻿namespace Nekki.SF2.GUI
+﻿namespace Brolton.GUI
 {
     public interface ITableViewDataSource
     {

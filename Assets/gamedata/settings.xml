@@ -1,0 +1,13 @@
+<Settings>
+    <MinTimeForNewMsg Value="5.0" />
+    <MaxTimeForNewMsg Value="15.0" />
+
+    <StartCharge Value="100.0" />
+
+    <UsualSpeed Value="0.001" />
+    <TypeSpeed Value="0.002" />
+    <ForfeitSpeed Value="0.003" />
+
+    <StartTimeForOneSymbol Value="1.0"/>
+    <DeltaTimeForOneSymbol Value="0.1"/>
+</Settings>

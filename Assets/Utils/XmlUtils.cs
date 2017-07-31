@@ -3,13 +3,12 @@ using System.Xml;
 using System.Collections;
 using System.IO;
 using System.Text;
-//using Nekki.SF2.Core;
 using System.Collections.Generic;
 using UnityEngine;
-//using Nekki.Utils;
-//using Nekki.SF2.Core.DataValidation;
+using Brolton.Utils;
 
-public static class XmlUtils {
+public static class XmlUtils 
+{
     public const string Comment = "#comment";
 
     public static bool IsNodeComment(XmlNode p_node) {

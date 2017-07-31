@@ -34,8 +34,15 @@ public class TimerController : MonoBehaviour
     {
         KillTween();
         _redFront.fillAmount = 0.0f;
+        PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.TYPE;
         _tween = DOTween.To(() => GetCurrentPersent(), (newValue) => SetContentPosition(newValue), 1.0f, duration);
         _tween.OnComplete(OnComplete);
+    }
+
+    public void StopTimer()
+    {
+        KillTween();
+        PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.USUAL;
     }
 
     float GetCurrentPersent()
@@ -50,6 +57,6 @@ public class TimerController : MonoBehaviour
 
     void OnComplete()
     {
-        
+        PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.FORFEIT;
     }
 }
