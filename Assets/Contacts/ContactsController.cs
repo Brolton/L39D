@@ -26,7 +26,7 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 //        _tableView.onSelectCell.AddListener (OnScrollTable);
 //        _tableView.onSelectCell.AddListener (OnChooseCurrentCell);
 
-        _tableView.ScrollToCell (_tableView.NumberOfRows () - 1);
+        _tableView.ScrollToCell (_tableView.NumberOfRows () / 2);
 
 //        LoadTablePosition(_tableView);
     }
@@ -40,7 +40,7 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 
     public float SizeForRowInTableView(TableView tableView, int row)
     {
-        return 102;
+        return 80;
     }
 
     public TableViewCell CellForRowInTableView(TableView tableView, int row)

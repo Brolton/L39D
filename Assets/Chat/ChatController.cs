@@ -154,7 +154,7 @@ namespace LudumDare39
 
                 if (sendedQuestion.GetAnswer() != null)
                 {
-                    MessageData newMyMsg = new MessageData(true, sendedQuestion.GetAnswer().text);
+                    MessageData newMyMsg = new MessageData(true, sendedQuestion.AnswerStr);
                     _messages.Add(newMyMsg);
                 }
             }
