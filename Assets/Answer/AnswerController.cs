@@ -25,6 +25,9 @@ namespace LudumDare39
 
         ChatController _chatController;
 
+        [SerializeField]
+        TimerController _timer;
+
         public void Init(ChatController chatController)
         {
             _chatController = chatController;
@@ -32,6 +35,7 @@ namespace LudumDare39
             _tableView.Init(this, this);
             _tableView.GetComponent<TableViewScroll>().enabled = false;
 
+            _inputField.enabled = false;
             _inputField.onValueChanged.AddListener(OnInputChanged);
             _inputField.onEndEdit.AddListener(OnEndEdit);
         }
@@ -77,6 +81,11 @@ namespace LudumDare39
             _tableView.transform.parent.gameObject.SetActive(false);
             _choosedAnswer.transform.parent.gameObject.SetActive(true);
             _choosedAnswer.text = _availableAnswers[row].text;
+            _inputField.enabled = true;
+            _inputField.text = "";
+            _inputField.ActivateInputField();
+            _timer.gameObject.SetActive(true);
+            _timer.StartTimer(_choosedAnswer.text.Length * 1.0f);
         }
 
         #endregion
@@ -85,6 +94,7 @@ namespace LudumDare39
         {
             _tableView.transform.parent.gameObject.SetActive(true);
             _choosedAnswer.transform.parent.gameObject.SetActive(false);
+            _timer.gameObject.SetActive(false);
 
             _availableAnswers = answers;
             _tableView.ReloadData();
@@ -106,9 +116,17 @@ namespace LudumDare39
 
         public void OnEndEdit(string str)
         {
+            if (_availableAnswers[_choosedAnswerId].text != str)
+            {
+                _inputField.ActivateInputField();
+                return;
+            }
+
+            _timer.gameObject.SetActive(false);
             _availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerId(_choosedAnswerId);
             _availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerText(_inputField.text);
             _inputField.text = "";
+            _inputField.enabled = false;
             _chatController.ReloadCurrentDialog();
             int currentContactId = AppController.Instance.GetCurrentContactID();
             AppController.Instance.SetTimerForContact(currentContactId);

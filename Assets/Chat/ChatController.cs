@@ -162,20 +162,22 @@ namespace LudumDare39
 
 
             _tableView.ReloadData();
-            _tableView.ScrollToCell (_messages.Count - 1);
 
             if (sendedQuestions.Count == 0)
             {
+                _tableView.ScrollToCell (_messages.Count - 2);
                 _answerController.gameObject.SetActive(false);
                 return;
             }
 
             if (sendedQuestions[sendedQuestions.Count - 1].GetAnswer() != null)
             {
+                _tableView.ScrollToCell (_messages.Count - 2);
                 _answerController.gameObject.SetActive(false);
                 return;
             }
 
+            _tableView.ScrollToCell (_messages.Count - 1);
             _answerController.gameObject.SetActive(true);
             _answerController.SetAnswers(sendedQuestions[sendedQuestions.Count - 1].AllAnswers);
         }

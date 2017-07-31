@@ -16,7 +16,7 @@ public class ContactCell : TableViewCell
 
     public void Init(ContactData contactData)
     {
-        _avatar.sprite = Resources.Load<Sprite>("Textures/" + contactData.AvatarImg);
+        _avatar.sprite = Resources.Load<Sprite>("Textures/Contacts/" + contactData.AvatarImg);
         _name.text = contactData.Name;
         _msgIndicator.gameObject.SetActive(false);
     }
