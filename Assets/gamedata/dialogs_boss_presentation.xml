@@ -9,7 +9,7 @@
 	<Question Text="Third time this week, Jackson! And it's only tuesday!" Id="b2">
 		<Answer Color="Red" Length="Short" Points="10" Text="I dunno.. My dog got stuck?" NextId="b3"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="So sorry, it's my old mother. She suddenly got very sick, i've had to rush her to the hospital." NextId="b9"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="How can you blame me? Is it really my fault that the time flows the way it is? Is it really my fault that the nature of man is not perfect by default? Try to think bigger before you start accusing me of such small things, ok?" NextId="b14"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="How can you blame me? Is it really my fault that the nature of man is not perfect by default? Try to think bigger next time." NextId="b14"/>
 	</Question>	
 
 	<Question Text="Goddammit! What the heck is it even supposed to mean?! Tell me one good reason not to fire right now, Jeffrey?" Id="b3">
