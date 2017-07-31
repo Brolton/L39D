@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Brolton.GUI;
+using Brolton.Utils;
 
 namespace LudumDare39
 {
@@ -88,7 +89,13 @@ namespace LudumDare39
             _inputField.ActivateInputField();
             _timer.gameObject.SetActive(true);
 
-            float timeForOneSymbol = Settings.StartTimeForOneSymbol - (_questionNumber - 1) * Settings.DeltaTimeForOneSymbol;
+            int numberOfSendedQuestions = AppController.Instance.MessagesController.GetNumberOfSendedQuestions();
+//            float timeForOneSymbol = Settings.StartTimeForOneSymbol - (_questionNumber - 1) * Settings.DeltaTimeForOneSymbol;
+            float timeForOneSymbol = Settings.StartTimeForOneSymbol * Mathf.Pow(Settings.DeltaTimeForOneSymbol, numberOfSendedQuestions - 1);
+            if (timeForOneSymbol < Settings.MinTimeForOneSymbol)
+            {
+                timeForOneSymbol = Settings.MinTimeForOneSymbol;
+            }
             _timer.StartTimer(_choosedAnswer.text.Length * timeForOneSymbol);
         }
 

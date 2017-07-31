@@ -5,9 +5,10 @@
     <StartCharge Value="100.0" />
 
     <UsualSpeed Value="0.001" />
-    <TypeSpeed Value="0.002" />
-    <ForfeitSpeed Value="0.003" />
+    <TypeSpeed Value="0.01" />
+    <ForfeitSpeed Value="0.02" />
 
     <StartTimeForOneSymbol Value="1.0"/>
-    <DeltaTimeForOneSymbol Value="0.1"/>
+    <DeltaTimeForOneSymbol Value="0.9"/>
+    <MinTimeForOneSymbol Value="0.01"/>
 </Settings>

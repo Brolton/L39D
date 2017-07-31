@@ -20,6 +20,7 @@ namespace LudumDare39
 
         public static float StartTimeForOneSymbol = 0.0f;
         public static float DeltaTimeForOneSymbol = 0.0f;
+        public static float MinTimeForOneSymbol = 0.0f;
 
         public static void Init()
         {
@@ -38,6 +39,7 @@ namespace LudumDare39
 
             StartTimeForOneSymbol = node["StartTimeForOneSymbol"].Attributes["Value"].AsFloat();
             DeltaTimeForOneSymbol = node["DeltaTimeForOneSymbol"].Attributes["Value"].AsFloat();
+            MinTimeForOneSymbol = node["MinTimeForOneSymbol"].Attributes["Value"].AsFloat();
         }
     }
 }

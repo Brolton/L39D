@@ -25,6 +25,9 @@ public class PhoneStatistic : MonoBehaviour
 
     float _currentPercent;
 
+    [SerializeField]
+    GameObject _theEnd;
+
     public void Init()
     {
         Instance = this;
@@ -35,6 +38,9 @@ public class PhoneStatistic : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (_currentPercent == 0.0f)
+            return;
+
         switch (Speed)
         {
             case SpeedType.USUAL:
@@ -46,6 +52,12 @@ public class PhoneStatistic : MonoBehaviour
             case SpeedType.FORFEIT:
                 _currentPercent -= Settings.ForfeitSpeed;
                 break;
+        }
+
+        if (_currentPercent <= 0)
+        {
+            _currentPercent = 0.0f;
+            _theEnd.gameObject.SetActive(true);
         }
                 
         _energyTxt.text = _currentPercent.ToString("0.0") + "%";

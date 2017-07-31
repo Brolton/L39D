@@ -129,6 +129,16 @@ namespace LudumDare39
         {
             return AllContacts[contactId].SendedQuestions;
         }
+
+        public int GetNumberOfSendedQuestions()
+        {
+            int count = 0;
+            foreach (ContactData contactData in AllContacts)
+            {
+                count += contactData.SendedQuestions.Count;
+            }
+            return count;
+        }
     }
 }
 
