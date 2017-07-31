@@ -15,7 +15,9 @@ namespace LudumDare39
 
     public enum AnswerColor
     {
+        None,
         Red,
+        Yellow,
         Green
     }
     
@@ -30,7 +32,23 @@ namespace LudumDare39
 
         public void Parse(XmlNode node)
         {
-//            color = node.Attributes["Color"].AsString("");
+            string colorStr = node.Attributes["Color"].AsString("");
+            switch (colorStr)
+            {
+                case "Red":
+                    color = AnswerColor.Red;
+                    break;
+                case "Yellow":
+                    color = AnswerColor.Yellow;
+                    break;
+                case "Green":
+                    color = AnswerColor.Green;
+                    break;
+                default:
+                    color = AnswerColor.None;
+                    break;
+            }
+
 //            length = node.Attributes["Length"].AsString("");
             points = node.Attributes["Points"].AsInt(0);
             text = node.Attributes["Text"].AsString("");

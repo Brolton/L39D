@@ -8,12 +8,15 @@ namespace LudumDare39
 {
     public class MessageCell : TableViewCell
     {
-        const int POS_X = 38;
+        [SerializeField]
+        GameObject _aiCloud;
+        [SerializeField]
+        UnityEngine.UI.Text _aiText;
 
         [SerializeField]
-        UnityEngine.UI.Text _text;
+        GameObject _playerCloud;
         [SerializeField]
-        Image _cloud;
+        UnityEngine.UI.Text _playerText;
 
         #region TableViewCell
 
@@ -44,17 +47,18 @@ namespace LudumDare39
 
         public void UpdateMsg(MessageData msgData)
         {
-            _text.text = msgData.Text;
+            _aiCloud.gameObject.SetActive(!msgData.IsMine);
+            _playerCloud.gameObject.SetActive(msgData.IsMine);
 
-            if (msgData.IsMine)
+            if (!msgData.IsMine)
             {
-                _cloud.color = Color.white;
-                _cloud.transform.SetLocalPositionX(POS_X);
+                _aiText.text = msgData.Text;
+                _playerText.text = "";
             }
             else
             {
-                _cloud.color = new Color(215/255.0f, 237/255.0f, 193/255.0f);
-                _cloud.transform.SetLocalPositionX(-POS_X);
+                _aiText.text = "";
+                _playerText.text = msgData.Text;
             }
         }
     }
