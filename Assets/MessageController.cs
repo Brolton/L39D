@@ -63,6 +63,7 @@ namespace LudumDare39
         public List<Answer> AllAnswers = new List<Answer>();
         int _answerId = -1;
         public string AnswerStr = "";
+		public int AnswerPoints = 0;
 
         public void Parse(XmlNode node)
         {
@@ -96,6 +97,11 @@ namespace LudumDare39
         {
             AnswerStr = answerStr;
         }
+
+		public void SetAnswerPoints(int answerPoints)
+		{
+			AnswerPoints = answerPoints;
+		}
     }
     
     public class MessageController
@@ -139,6 +145,20 @@ namespace LudumDare39
             }
             return count;
         }
+
+		public int GetTotalPointsOfSendedQuestions(int contactId)
+		{
+			return AllContacts [contactId].GetTotalPoints ();
+		}
+
+		public int GetTotalPoints()
+		{
+			int total = 0;
+			foreach (ContactData contact in AllContacts) {
+				total += contact.GetTotalPoints ();
+			}
+			return total;
+		}
     }
 }
 

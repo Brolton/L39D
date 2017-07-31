@@ -11,6 +11,8 @@ public class TimerController : MonoBehaviour
 
     private Tween _tween = null;
 
+	public static bool TimeIsOut = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -34,6 +36,7 @@ public class TimerController : MonoBehaviour
     {
         KillTween();
         _redFront.fillAmount = 0.0f;
+		TimeIsOut = false;
         PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.TYPE;
         _tween = DOTween.To(() => GetCurrentPersent(), (newValue) => SetContentPosition(newValue), 1.0f, duration);
         _tween.OnComplete(OnComplete);
@@ -57,6 +60,7 @@ public class TimerController : MonoBehaviour
 
     void OnComplete()
     {
+		TimeIsOut = true;
         PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.FORFEIT;
     }
 }

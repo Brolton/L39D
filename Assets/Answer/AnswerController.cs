@@ -31,7 +31,7 @@ namespace LudumDare39
 
         int _questionNumber = 1;
 
-        public void Init(ChatController chatController)
+		public void Init(ChatController chatController)
         {
             _chatController = chatController;
             _tableView.CellPrefab = _answerCellPrefab;
@@ -143,7 +143,16 @@ namespace LudumDare39
             _timer.gameObject.SetActive(false);
             _availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerId(_choosedAnswerId);
             _availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerText(_inputField.text);
-            _inputField.text = "";
+
+			int points = _availableAnswers [_choosedAnswerId].points;
+			if (TimerController.TimeIsOut) {
+				points /= 2;
+			} else {
+				points += 5;
+			}
+			_availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerPoints(points);
+            
+			_inputField.text = "";
             _inputField.enabled = false;
             _chatController.ReloadCurrentDialog();
             int currentContactId = AppController.Instance.GetCurrentContactID();

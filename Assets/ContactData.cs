@@ -87,6 +87,15 @@ namespace LudumDare39
             }
             return null;
         }
+
+		public int GetTotalPoints()
+		{
+			int total = 0;
+			foreach (Question question in SendedQuestions) {
+				total += question.AnswerPoints;
+			}
+			return total;
+		}
     }
 }
 
