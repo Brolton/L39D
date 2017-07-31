@@ -32,6 +32,7 @@ namespace LudumDare39
             _tableView.Init(this, this);
             _tableView.GetComponent<TableViewScroll>().enabled = false;
 
+            _inputField.onValueChanged.AddListener(OnInputChanged);
             _inputField.onEndEdit.AddListener(OnEndEdit);
         }
 
@@ -44,7 +45,7 @@ namespace LudumDare39
 
         public float SizeForRowInTableView(TableView tableView, int row)
         {
-            return 102;
+            return 86;
         }
 
         public TableViewCell CellForRowInTableView(TableView tableView, int row)
@@ -88,6 +89,19 @@ namespace LudumDare39
             _availableAnswers = answers;
             _tableView.ReloadData();
             _tableView.ScrollToCell ((answers.Count ) / 2);
+        }
+
+        void OnInputChanged(string str)
+        {
+            // Ok or Error?
+            if (_availableAnswers[_choosedAnswerId].text.Contains(str))
+            {
+                _inputField.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                _inputField.GetComponent<Image>().color = Color.red;
+            }
         }
 
         public void OnEndEdit(string str)

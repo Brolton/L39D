@@ -33,6 +33,7 @@ namespace LudumDare39
         {
             _tableView.CellPrefab = _msgCellPrefab;
             _tableView.Init(this, this);
+            _tableView.GetComponent<TableViewScroll>().enabled = false;
 
             _tableView.onSelectCell.AddListener (OnScrollTable);
             _tableView.onSelectCell.AddListener (OnChooseCurrentCell);
