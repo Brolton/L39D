@@ -9,7 +9,7 @@
 	<Question Text="Glad to hear, have you got a watch?" Id="p1">
 		<Answer Color="Red" Length="Short" Points="10" Text="Goddammit" NextId="b1"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="A present you mean? Seems like it." NextId="p2"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="Ofc, we bought them together, how could i forget?=)" NextId="p2"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Ofc, we bought it together, how could i forget?=)" NextId="p2"/>
 	</Question>
 
 	<Question Text="Ok. Your brother's already here." Id="p2">
