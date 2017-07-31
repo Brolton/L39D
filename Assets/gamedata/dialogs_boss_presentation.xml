@@ -3,7 +3,7 @@
 	<Question Text="Johnson!Your shift started an hour ago!" Id="b1">
 		<Answer Color="Red" Length="Short" Points="10" Text="Omw. traffic jam. 20" NextId="b2"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Got stuck in a traffic jam, will be there in 20" NextId="b2"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="I'm so sorry for this, sir. On my way to work today unimaginable happened - a bunch of cars collided on a highway! I'll be there very soon." NextId="b5"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="So sorry! On my way to work today i've got stuck in a giant traffic jam! I'll be there very soon." NextId="b5"/>
 	</Question>
 
 	<Question Text="Third time this week, Jackson! And it's only tuesday!" Id="b2">
