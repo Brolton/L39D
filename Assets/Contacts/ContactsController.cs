@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Brolton.GUI;
 using LudumDare39;
 
@@ -14,6 +15,8 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
     private List<ContactData> _contacts;
 
     public int CurrentContactId = -1;
+
+	float cellHeight = 1;
 
     public void Init(List<ContactData> contacts)
     {
@@ -40,12 +43,16 @@ public class ContactsController : MonoBehaviour, ITableViewDataSource, ITableVie
 
     public float SizeForRowInTableView(TableView tableView, int row)
     {
-        return 80;
+		cellHeight = _tableView.GetComponent<RectTransform>().rect.size.y / NumberOfRowsInTableView(tableView);
+		return cellHeight;
     }
 
     public TableViewCell CellForRowInTableView(TableView tableView, int row)
     {
         TableViewCell cell = tableView.ReusableCellForRow(row);
+		cell.GetComponent<RectTransform>().sizeDelta = new Vector2(cell.GetComponent<RectTransform>().sizeDelta.x, cellHeight);
+		cell.GetComponent<LayoutElement> ().minHeight = cellHeight;
+		cell.GetComponent<LayoutElement> ().preferredHeight = cellHeight;
         ContactCell contactCell = cell.GetComponent<ContactCell>();
         //            displayItem.BaseSize = Constants.SEAL_SIZE;
         //            displayItem.IconPanelActive = false;
