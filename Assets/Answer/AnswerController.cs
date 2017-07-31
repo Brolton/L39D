@@ -30,6 +30,7 @@ namespace LudumDare39
         TimerController _timer;
 
         int _questionNumber = 1;
+		float cellHeight = 1;
 
 		public void Init(ChatController chatController)
         {
@@ -59,12 +60,16 @@ namespace LudumDare39
 
         public float SizeForRowInTableView(TableView tableView, int row)
         {
-            return 86;
+			cellHeight = (_tableView.GetComponent<RectTransform>().rect.size.y - 50) / NumberOfRowsInTableView(tableView);
+			return cellHeight;
         }
 
         public TableViewCell CellForRowInTableView(TableView tableView, int row)
         {
             TableViewCell cell = tableView.ReusableCellForRow(row);
+			cell.GetComponent<RectTransform>().sizeDelta = new Vector2(cell.GetComponent<RectTransform>().sizeDelta.x, cellHeight);
+			cell.GetComponent<LayoutElement> ().minHeight = cellHeight;
+			cell.GetComponent<LayoutElement> ().preferredHeight = cellHeight;
             AnswerCell answerCell = cell.GetComponent<AnswerCell>();
 //            displayItem.BaseSize = Constants.SEAL_SIZE;
 //            displayItem.IconPanelActive = false;

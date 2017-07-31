@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Brolton.GUI;
 
 namespace LudumDare39
@@ -16,6 +17,8 @@ namespace LudumDare39
         AnswerController _answerController;
 
         private List<MessageData> _messages = new List<MessageData>();
+
+		float cellHeight = 1;
 
         public void Init()
         {
@@ -46,12 +49,16 @@ namespace LudumDare39
 
         public float SizeForRowInTableView(TableView tableView, int row)
         {
-            return 102;
+			cellHeight = (_tableView.GetComponent<RectTransform>().rect.size.y) / 4.5f;
+			return cellHeight;
         }
 
         public TableViewCell CellForRowInTableView(TableView tableView, int row)
         {
             TableViewCell cell = tableView.ReusableCellForRow(row);
+			cell.GetComponent<RectTransform>().sizeDelta = new Vector2(cell.GetComponent<RectTransform>().sizeDelta.x, cellHeight);
+			cell.GetComponent<LayoutElement> ().minHeight = cellHeight;
+			cell.GetComponent<LayoutElement> ().preferredHeight = cellHeight;
             MessageCell msgCell = cell.GetComponent<MessageCell>();
             //            displayItem.BaseSize = Constants.SEAL_SIZE;
             //            displayItem.IconPanelActive = false;
