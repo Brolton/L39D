@@ -23,7 +23,7 @@ public class PhoneStatistic : MonoBehaviour
     [SerializeField]
     UnityEngine.UI.Text _energyTxt;
 
-    float _currentPercent;
+	public float CurrentPercent;
 
     [SerializeField]
     GameObject _theEnd;
@@ -31,36 +31,36 @@ public class PhoneStatistic : MonoBehaviour
     public void Init()
     {
         Instance = this;
-        _currentPercent = Settings.StartCharge;
-        _energyBar.fillAmount = _currentPercent / FULL_PERCENT;
+        CurrentPercent = Settings.StartCharge;
+        _energyBar.fillAmount = CurrentPercent / FULL_PERCENT;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (_currentPercent == 0.0f)
+        if (CurrentPercent == 0.0f)
             return;
 
         switch (Speed)
         {
             case SpeedType.USUAL:
-                _currentPercent -= Settings.UsualSpeed;
+                CurrentPercent -= Settings.UsualSpeed;
                 break;
             case SpeedType.TYPE:
-                _currentPercent -= Settings.TypeSpeed;
+                CurrentPercent -= Settings.TypeSpeed;
                 break;
             case SpeedType.FORFEIT:
-                _currentPercent -= Settings.ForfeitSpeed;
+                CurrentPercent -= Settings.ForfeitSpeed;
                 break;
         }
 
-        if (_currentPercent <= 0)
+        if (CurrentPercent <= 0)
         {
-            _currentPercent = 0.0f;
+            CurrentPercent = 0.0f;
             _theEnd.gameObject.SetActive(true);
         }
                 
-        _energyTxt.text = _currentPercent.ToString("0.0") + "%";
-        _energyBar.fillAmount = _currentPercent / FULL_PERCENT;
+        _energyTxt.text = CurrentPercent.ToString("0.0") + "%";
+        _energyBar.fillAmount = CurrentPercent / FULL_PERCENT;
 	}
 }

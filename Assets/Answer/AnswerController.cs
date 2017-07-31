@@ -89,14 +89,18 @@ namespace LudumDare39
             _inputField.ActivateInputField();
             _timer.gameObject.SetActive(true);
 
-            int numberOfSendedQuestions = AppController.Instance.MessagesController.GetNumberOfSendedQuestions();
-//            float timeForOneSymbol = Settings.StartTimeForOneSymbol - (_questionNumber - 1) * Settings.DeltaTimeForOneSymbol;
-            float timeForOneSymbol = Settings.StartTimeForOneSymbol * Mathf.Pow(Settings.DeltaTimeForOneSymbol, numberOfSendedQuestions - 1);
-            if (timeForOneSymbol < Settings.MinTimeForOneSymbol)
-            {
-                timeForOneSymbol = Settings.MinTimeForOneSymbol;
-            }
-            _timer.StartTimer(_choosedAnswer.text.Length * timeForOneSymbol);
+//            int numberOfSendedQuestions = AppController.Instance.MessagesController.GetNumberOfSendedQuestions();
+////            float timeForOneSymbol = Settings.StartTimeForOneSymbol - (_questionNumber - 1) * Settings.DeltaTimeForOneSymbol;
+//            float timeForOneSymbol = Settings.StartTimeForOneSymbol * Mathf.Pow(Settings.DeltaTimeForOneSymbol, numberOfSendedQuestions - 1);
+//            if (timeForOneSymbol < Settings.MinTimeForOneSymbol)
+//            {
+//                timeForOneSymbol = Settings.MinTimeForOneSymbol;
+//            }
+//            _timer.StartTimer(_choosedAnswer.text.Length * timeForOneSymbol);
+
+			float symbol_time = Settings.MinTimeForOneSymbol + 
+				(Settings.StartTimeForOneSymbol * PhoneStatistic.Instance.CurrentPercent) / 100.0f;
+			_timer.StartTimer(_choosedAnswer.text.Length * symbol_time);
         }
 
         #endregion
