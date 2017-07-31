@@ -3,12 +3,12 @@
 	<Question Text="Johnson!Your shift started an hour ago!" Id="b1">
 		<Answer Color="Red" Length="Short" Points="10" Text="Omw. traffic jam. 20" NextId="b2"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Got stuck in a traffic jam, will be there in 20" NextId="b2"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="I’m so sorry for this, sir. On my way to work today unimaginable happened - a bunch of cars collided on a highway! I’ll be there very soon." NextId="b5"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="I'm so sorry for this, sir. On my way to work today unimaginable happened - a bunch of cars collided on a highway! I'll be there very soon." NextId="b5"/>
 	</Question>
 
-	<Question Text="Third time this week, Jackson! And it’s only tuesday!" Id="b2">
+	<Question Text="Third time this week, Jackson! And it's only tuesday!" Id="b2">
 		<Answer Color="Red" Length="Short" Points="10" Text="I dunno.. My dog got stuck?" NextId="b3"/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="So sorry, it's my old mother. She suddenly got very sick, i’ve had to rush her to the hospital." NextId="b9"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="So sorry, it's my old mother. She suddenly got very sick, i've had to rush her to the hospital." NextId="b9"/>
 		<Answer Color="Green" Length="Long" Points="30" Text="How can you blame me? Is it really my fault that the time flows the way it is? Is it really my fault that the nature of man is not perfect by default? Try to think bigger before you start accusing me of such small things, ok?" NextId="b14"/>
 	</Question>	
 
@@ -51,7 +51,7 @@
 	<Question Text="Again?" Id="b9">
 		<Answer Color="Red" Length="Short" Points="10" Text="She is like, VERY old." NextId="b11"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Damn. Already used that one?" NextId="b10"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="Watch your tone, it’s my mother you are talking about." NextId="b12"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Watch your tone, it's my mother you are talking about." NextId="b12"/>
 	</Question>	
 	
 	<Question Text="Yeah, you did. Tell me one good reason not to fire right now, Jeffrey?" Id="b10">
@@ -78,10 +78,10 @@
 		<Answer Color="Green" Length="Long" Points="30" Text="Of course" NextId="b4"/>
 	</Question>	
 	
-	<Question Text="Oh god you are right... I’m so sorry,i have never thought about it that way. Can i do something to make up for my rudeness?" Id="b14">
+	<Question Text="Oh god you are right... I'm so sorry,i have never thought about it that way. Can i do something to make up for my rudeness?" Id="b14">
 		<Answer Color="Red" Length="Short" Points="10" Text="A raise would be nice" NextId="b15"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="How about a paid vacation for the rest of the year?" NextId="b19"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="From now on you are calling me guru but don’t worry, i'm going to help you in more ways you can imagine. " NextId="b20"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="From now on you are calling me guru but don't worry, i'm going to help you in more ways you can imagine. " NextId="b20"/>
 	</Question>	
 	
 	<Question Text="Hmm, that's fair. What position are you interested in?" Id="b15">
@@ -99,7 +99,7 @@
 	<Question Text="What do you mean? That's my title." Id="b17">
 		<Answer Color="Red" Length="Short" Points="10" Text="Exactly" NextId="b18"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Make me some coffee when i arrive" NextId="b18"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="You understood me perfectly well, i’m the boss now! Thats right, i want your job" NextId="b18"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="You understood me perfectly well, i'm the boss now! Thats right, i want your job" NextId="b18"/>
 	</Question>	
 	
 	<Question Text="Power move, huh? Harsh, but fair. I can respect that, Boss" Id="b18">
@@ -108,7 +108,7 @@
 		<Answer Color="Green" Length="Long" Points="30" Text="You come at the king, you best not miss" NextId="end"/>
 	</Question>	
 	
-	<Question Text="How about an UNPAID vacation for the rest of the year? Actually i’m tired of your crap, you are fired" Id="b19">
+	<Question Text="How about an UNPAID vacation for the rest of the year? Actually i'm tired of your crap, you are fired" Id="b19">
 		<Answer Color="Red" Length="Short" Points="10" Text=":(" NextId="end"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Aww maan" NextId="end"/>
 		<Answer Color="Green" Length="Long" Points="30" Text="Well damn, what an unexpected turn" NextId="end"/>
@@ -116,8 +116,8 @@
 	
 	<Question Text="What on earth is that supposed to mean?" Id="b20">
 		<Answer Color="Red" Length="Short" Points="10" Text="Come my child, we have a lot things to learn" NextId="b21"/>
-		<Answer Color="Yellow" Length="Medium" Points="20" Text="I’m going to lead you to enlightenment one step at a time" NextId="b21"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="Path to happiness is a thorny one,but i’m going to help you walk it. All you have to do is trust me." NextId="b21"/>
+		<Answer Color="Yellow" Length="Medium" Points="20" Text="I'm going to lead you to enlightenment one step at a time" NextId="b21"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Path to happiness is a thorny one,but i'm going to help you walk it. All you have to do is trust me." NextId="b21"/>
 	</Question>	
 	
 	<Question Text="Hmm, this extremely weird, but i kinda feel calm… Just get to the office, ok?" Id="b21">
@@ -144,7 +144,7 @@
 		<Answer Color="Green" Length="Long" Points="30" Text="No second chances i guess?" NextId="end"/>
 	</Question>	
 	
-	<Question Text="Great, can’t wait to hear it, Jorb! Now hurry up to the office!" Id="b25">
+	<Question Text="Great, can't wait to hear it, Jorb! Now hurry up to the office!" Id="b25">
 		<Answer Color="Red" Length="Short" Points="10" Text="Heh, going fast" NextId="end"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Oh it's going to be real good" NextId="end"/>
 		<Answer Color="Green" Length="Long" Points="30" Text="Cmon you name isnt Jorb,is Jorb even a real name? " NextId="end"/>
