@@ -28,7 +28,7 @@ public class GameOverPanel : MonoBehaviour
 		
 	}
 
-	void UpdateCounters()
+	public void UpdateCounters()
 	{
 		_contact1Result.text = AppController.Instance.MessagesController.GetTotalPointsOfSendedQuestions (0).ToString();
 		_contact2Result.text = AppController.Instance.MessagesController.GetTotalPointsOfSendedQuestions (1).ToString();

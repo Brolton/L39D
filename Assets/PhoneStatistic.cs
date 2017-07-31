@@ -26,7 +26,7 @@ public class PhoneStatistic : MonoBehaviour
 	public float CurrentPercent;
 
     [SerializeField]
-    GameObject _theEnd;
+	GameOverPanel _theEnd;
 
     public void Init()
     {
@@ -57,6 +57,7 @@ public class PhoneStatistic : MonoBehaviour
         if (CurrentPercent <= 0)
         {
             CurrentPercent = 0.0f;
+			_theEnd.UpdateCounters ();
             _theEnd.gameObject.SetActive(true);
         }
                 
