@@ -43,6 +43,13 @@ namespace LudumDare39
             _inputField.onEndEdit.AddListener(OnEndEdit);
         }
 
+		void Update()
+		{
+			if (TimerController.TimeIsOut) {
+				OnEndEdit (null);
+			}
+		}
+
         #region ITableViewDataSource
 
         public int NumberOfRowsInTableView(TableView tableView)
@@ -131,9 +138,9 @@ namespace LudumDare39
             }
         }
 
-        public void OnEndEdit(string str)
+		public void OnEndEdit(string str = null)
         {
-            if (_availableAnswers[_choosedAnswerId].text != str)
+			if (str != null && _availableAnswers[_choosedAnswerId].text != str)
             {
                 _inputField.ActivateInputField();
                 return;
@@ -150,6 +157,7 @@ namespace LudumDare39
 			} else {
 				points += 5;
 			}
+			TimerController.TimeIsOut = false;
 			_availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerPoints(points);
             
 			_inputField.text = "";

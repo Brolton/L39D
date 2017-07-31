@@ -5,18 +5,6 @@ using Brolton.GUI;
 
 namespace LudumDare39
 {
-    public class MessageData
-    {
-        public bool IsMine;
-        public string Text;
-
-        public MessageData(bool isMine, string text)
-        {
-            IsMine = isMine;
-            Text = text;
-        }
-    }
-
     public class ChatController : MonoBehaviour, ITableViewDataSource, ITableViewDelegate
     {
         [SerializeField]
@@ -155,7 +143,8 @@ namespace LudumDare39
 
                 if (sendedQuestion.GetAnswer() != null)
                 {
-                    MessageData newMyMsg = new MessageData(true, sendedQuestion.AnswerStr);
+					bool playerFail = sendedQuestion.AnswerStr != sendedQuestion.GetAnswer ().text;
+					MessageData newMyMsg = new MessageData(true, sendedQuestion.AnswerStr, playerFail);
                     _messages.Add(newMyMsg);
                 }
             }
@@ -188,4 +177,18 @@ namespace LudumDare39
             SetCurrentContact(currentContactID);
         }
     }
+
+	public class MessageData
+	{
+		public bool IsMine;
+		public string Text;
+		public bool PlayerFail;
+
+		public MessageData(bool isMine, string text, bool playerFail = false)
+		{
+			IsMine = isMine;
+			Text = text;
+			PlayerFail = playerFail;
+		}
+	}
 }

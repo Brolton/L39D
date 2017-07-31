@@ -61,6 +61,6 @@ public class TimerController : MonoBehaviour
     void OnComplete()
     {
 		TimeIsOut = true;
-        PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.FORFEIT;
+//        PhoneStatistic.Instance.Speed = PhoneStatistic.SpeedType.FORFEIT;
     }
 }

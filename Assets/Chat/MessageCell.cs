@@ -59,6 +59,7 @@ namespace LudumDare39
             {
                 _aiText.text = "";
                 _playerText.text = msgData.Text;
+				_playerCloud.GetComponent<Image> ().color = msgData.PlayerFail ? Color.red : Color.white;
             }
         }
     }
