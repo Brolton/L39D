@@ -116,7 +116,7 @@ namespace LudumDare39
 //            ParseXml(doc);
 
             XmlDocument doc= new XmlDocument();
-            doc.Load( Application.dataPath + "/gamedata/contacts.xml" );
+			doc.Load( Application.streamingAssetsPath + "/gamedata/contacts.xml" );
             ParseContacts(doc);
         }
 

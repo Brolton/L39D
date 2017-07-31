@@ -27,7 +27,7 @@ namespace LudumDare39
             dialogFileName = node["Dialog"].Attributes["File"].AsString("");
 
             XmlDocument doc= new XmlDocument();
-            doc.Load( Application.dataPath + "/gamedata/" + dialogFileName );
+			doc.Load( Application.streamingAssetsPath + "/gamedata/" + dialogFileName );
             ParseAllQuestions(doc);
         }
 

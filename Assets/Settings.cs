@@ -25,7 +25,7 @@ namespace LudumDare39
         public static void Init()
         {
             XmlDocument doc= new XmlDocument();
-            doc.Load( Application.dataPath + "/gamedata/settings.xml" );
+			doc.Load( Application.streamingAssetsPath + "/gamedata/settings.xml" );
             XmlNode node = doc["Settings"];
 
             MinTimeForNewMsg = node["MinTimeForNewMsg"].Attributes["Value"].AsFloat();
