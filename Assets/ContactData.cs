@@ -15,7 +15,7 @@ namespace LudumDare39
         public string AvatarImg = "";
         string dialogFileName = "";
 
-        List<Question> AllQuestions = new List<Question>();
+        public List<Question> AllQuestions = new List<Question>();
 
         public List<Question> SendedQuestions = new List<Question>();
 

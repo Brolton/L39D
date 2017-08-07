@@ -159,6 +159,43 @@ namespace LudumDare39
 			}
 			return total;
 		}
+
+        public bool IsAllDialogsComplete()
+        {
+            bool allComplete = true;
+            foreach (ContactData contactData in AllContacts)
+            {
+                if (contactData.SendedQuestions.Count != contactData.AllQuestions.Count)
+                {
+                    if (contactData.SendedQuestions.Count == 0)
+                    {
+                        allComplete = false;
+                        break;
+                    }
+
+                    Answer lastAnswer = contactData.SendedQuestions[contactData.SendedQuestions.Count - 1].GetAnswer();
+                    if (lastAnswer == null)
+                    {
+                        allComplete = false;
+                        break;
+                    }
+
+                    string nextQuestionId = lastAnswer.NextQuestionId;
+                    if (!(nextQuestionId == "" ||
+                        nextQuestionId == "end" ||
+                        nextQuestionId == "END"))
+                    {
+                        allComplete = false;
+                        break;
+                    }
+                    else
+                    {
+                        int breakP = 1;
+                    }
+                }
+            }
+            return allComplete;
+        }
     }
 }
 

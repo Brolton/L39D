@@ -169,7 +169,12 @@ namespace LudumDare39
             _inputField.enabled = false;
             _chatController.ReloadCurrentDialog();
             int currentContactId = AppController.Instance.GetCurrentContactID();
-            AppController.Instance.SetTimerForContact(currentContactId);
+
+            bool isGameOver = GameController.Instance.CheckGameOver();
+            if (!isGameOver)
+            {
+                AppController.Instance.SetTimerForContact(currentContactId);
+            }
         }
     }
 }

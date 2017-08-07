@@ -25,9 +25,6 @@ public class PhoneStatistic : MonoBehaviour
 
 	public float CurrentPercent;
 
-    [SerializeField]
-	GameOverPanel _theEnd;
-
     public void Init()
     {
         Instance = this;
@@ -57,8 +54,7 @@ public class PhoneStatistic : MonoBehaviour
         if (CurrentPercent <= 0)
         {
             CurrentPercent = 0.0f;
-			_theEnd.UpdateCounters ();
-            _theEnd.gameObject.SetActive(true);
+            GameController.Instance.CheckGameOver();
         }
                 
         _energyTxt.text = CurrentPercent.ToString("0.0") + "%";
