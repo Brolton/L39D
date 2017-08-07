@@ -22,6 +22,13 @@ namespace LudumDare39
         public static float DeltaTimeForOneSymbol = 0.0f;
         public static float MinTimeForOneSymbol = 0.0f;
 
+        public static string FailChar = "";         //"Sound_effects/typo"
+        public static string MessageSuccess = "";   //"Sound_effects/Message_sent_success"
+        public static string MessageTimeout = "";   //"Sound_effects/Message_sent_failure"
+        public static string ContactSelect = "";
+        public static List<string> Keyboard = new List<string>();
+
+
         public static void Init()
         {
             XmlDocument doc= new XmlDocument();
@@ -40,6 +47,15 @@ namespace LudumDare39
             StartTimeForOneSymbol = node["StartTimeForOneSymbol"].Attributes["Value"].AsFloat();
             DeltaTimeForOneSymbol = node["DeltaTimeForOneSymbol"].Attributes["Value"].AsFloat();
             MinTimeForOneSymbol = node["MinTimeForOneSymbol"].Attributes["Value"].AsFloat();
+
+            FailChar = node["Sounds"]["FailChar"].FirstAttribute().AsString("");
+            MessageSuccess = node["Sounds"]["MessageSuccess"].FirstAttribute().AsString("");
+            MessageTimeout = node["Sounds"]["MessageTimeout"].FirstAttribute().AsString("");
+            ContactSelect = node["Sounds"]["ContactSelect"].FirstAttribute().AsString("");
+            foreach(XmlNode keyNode in node["Sounds"]["Keyboard"].ChildNodes)
+            {
+                Keyboard.Add(keyNode.FirstAttribute().AsString(""));
+            }
         }
     }
 }

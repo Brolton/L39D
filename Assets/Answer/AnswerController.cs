@@ -136,10 +136,12 @@ namespace LudumDare39
             if (_availableAnswers[_choosedAnswerId].text.Contains(str))
             {
                 _inputField.GetComponent<Image>().color = Color.white;
+                SoundController.Instance.PlayKeyboard();
             }
             else
             {
                 _inputField.GetComponent<Image>().color = Color.red;
+                SoundController.Instance.PlayFailChar();
             }
         }
 
@@ -147,6 +149,7 @@ namespace LudumDare39
         {
 			if (str != null && _availableAnswers[_choosedAnswerId].text != str)
             {
+//                SoundController.Instance.PlayFailChar();
                 _inputField.ActivateInputField();
                 _inputField.Select();
 
@@ -164,8 +167,10 @@ namespace LudumDare39
 			int points = _availableAnswers [_choosedAnswerId].points;
 			if (TimerController.TimeIsOut) {
 				points /= 2;
+                SoundController.Instance.PlaySendTimeout();
 			} else {
 				points += 5;
+                SoundController.Instance.PlaySendSuccess();
 			}
 			TimerController.TimeIsOut = false;
 			_availableAnswers[_choosedAnswerId].ParentQuestion.SetAnswerPoints(points);

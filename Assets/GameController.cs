@@ -17,6 +17,9 @@ namespace LudumDare39
         [SerializeField]
         GameOverPanel _theEnd;
 
+        [SerializeField]
+        SoundController _soundController;
+
     	// Use this for initialization
     	void Start ()
         {
@@ -24,6 +27,7 @@ namespace LudumDare39
             Settings.Init();
             _phoneStatistic.Init();
             _appController.Init();
+            _soundController.Init();
     	}
     	
     	// Update is called once per frame

@@ -11,4 +11,17 @@
     <StartTimeForOneSymbol Value="1.0"/>
     <DeltaTimeForOneSymbol Value="0.9"/>
     <MinTimeForOneSymbol Value="0.2"/>
+
+    <Sounds>
+      <FailChar Value="Sound_effects/typo" />
+      <MessageSuccess Value="Sound_effects/Message_sent_success" />
+      <MessageTimeout Value="Sound_effects/Message_sent_failure" />
+      <ContactSelect Value="Sound_effects/menu_select_click" />
+      <Keyboard>
+        <Key1 Value="Sound_effects/Keyboard_clicks/typewriter_key_1" />
+        <Key2 Value="Sound_effects/Keyboard_clicks/keyboard_key_2" />
+        <Key3 Value="Sound_effects/Keyboard_clicks/keyboard_key_3" />
+        <Key4 Value="Sound_effects/Keyboard_clicks/keyboard_key_4" />
+      </Keyboard>
+    </Sounds>
 </Settings>

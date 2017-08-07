@@ -37,6 +37,7 @@ public class AppController : MonoBehaviour
 
     public void OnContactClick(int contactId)
     {
+        SoundController.Instance.PlayContactClick();
         if (_rulesIsOpened)
         {
             _rulesIsOpened = false;
