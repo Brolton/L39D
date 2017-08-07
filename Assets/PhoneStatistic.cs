@@ -54,8 +54,8 @@ public class PhoneStatistic : MonoBehaviour
         if (CurrentPercent <= 0)
         {
             CurrentPercent = 0.0f;
-            GameController.Instance.CheckGameOver();
         }
+        GameController.Instance.CheckGameOver();
                 
         _energyTxt.text = CurrentPercent.ToString("0.0") + "%";
         _energyBar.fillAmount = CurrentPercent / FULL_PERCENT;

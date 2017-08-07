@@ -22,6 +22,8 @@ namespace LudumDare39
         public static float DeltaTimeForOneSymbol = 0.0f;
         public static float MinTimeForOneSymbol = 0.0f;
 
+        public static string MainTheme = "Sound_effects/Homestuck_-_Fuchsia_ruler";
+
         public static string FailChar = "";         //"Sound_effects/typo"
         public static string MessageSuccess = "";   //"Sound_effects/Message_sent_success"
         public static string MessageTimeout = "";   //"Sound_effects/Message_sent_failure"
