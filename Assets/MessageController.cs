@@ -188,10 +188,6 @@ namespace LudumDare39
                         allComplete = false;
                         break;
                     }
-                    else
-                    {
-                        int breakP = 1;
-                    }
                 }
             }
             return allComplete;

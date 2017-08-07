@@ -148,6 +148,11 @@ namespace LudumDare39
 			if (str != null && _availableAnswers[_choosedAnswerId].text != str)
             {
                 _inputField.ActivateInputField();
+                _inputField.Select();
+
+                // Start a coroutine to deselect text and move caret to end. 
+                // This can't be done now, must be done in the next frame.
+                StartCoroutine(MoveTextEnd_NextFrame());
                 return;
             }
 
@@ -175,6 +180,12 @@ namespace LudumDare39
             {
                 AppController.Instance.SetTimerForContact(currentContactId);
             }
+        }
+
+        IEnumerator MoveTextEnd_NextFrame()
+        {
+            yield return 0; // Skip the first frame in which this is called.
+            _inputField.MoveTextEnd(false); // Do this during the next frame.
         }
     }
 }
