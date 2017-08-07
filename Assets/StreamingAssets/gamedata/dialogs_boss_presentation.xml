@@ -63,7 +63,7 @@
 	<Question Text="Stop lying Jonathan" Id="b11">
 		<Answer Color="Red" Length="Short" Points="10" Text="Sry" NextId="b13"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Will not happen again" NextId="b13"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="Lying? Me?! How dare you, sir? " NextId="b13"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Lying? Me?! How dare you, sir?" NextId="b13"/>
 	</Question>	
 	
 	<Question Text="Well and i am still your boss. So did you prepare for your presentation today, Jerbil?" Id="b12">
@@ -81,7 +81,7 @@
 	<Question Text="Oh god you are right... I'm so sorry,i have never thought about it that way. Can i do something to make up for my rudeness?" Id="b14">
 		<Answer Color="Red" Length="Short" Points="10" Text="A raise would be nice" NextId="b15"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="How about a paid vacation for the rest of the year?" NextId="b19"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="From now on you are calling me guru but don't worry, i'm going to help you in more ways you can imagine. " NextId="b20"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="From now on you are calling me guru but don't worry, i'm going to help you in more ways you can imagine." NextId="b20"/>
 	</Question>	
 	
 	<Question Text="Hmm, that's fair. What position are you interested in?" Id="b15">
@@ -147,7 +147,7 @@
 	<Question Text="Great, can't wait to hear it, Jorb! Now hurry up to the office!" Id="b25">
 		<Answer Color="Red" Length="Short" Points="10" Text="Heh, going fast" NextId="end"/>
 		<Answer Color="Yellow" Length="Medium" Points="20" Text="Oh it's going to be real good" NextId="end"/>
-		<Answer Color="Green" Length="Long" Points="30" Text="Cmon you name isnt Jorb,is Jorb even a real name? " NextId="end"/>
+		<Answer Color="Green" Length="Long" Points="30" Text="Cmon you name isnt Jorb,is Jorb even a real name?" NextId="end"/>
 	</Question>	
 	
 	<Question Text="Wow, exactly the one! I was 100% sure you would forget, impressive. Now hurry up to the office, i can't wait to hear it" Id="b26">
