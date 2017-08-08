@@ -13,15 +13,16 @@
     <MinTimeForOneSymbol Value="0.2"/>
 
     <Sounds>
-      <FailChar Value="Sound_effects/typo" />
-      <MessageSuccess Value="Sound_effects/Message_sent_success" />
-      <MessageTimeout Value="Sound_effects/Message_sent_failure" />
-      <ContactSelect Value="Sound_effects/menu_select_click" />
+      <FailChar Path="Sound_effects/typo" Volume="1.0" />
+      <MessageSuccess Path="Sound_effects/Message_sent_success" Volume="1.0" />
+      <MessageTimeout Path="Sound_effects/Message_sent_failure" Volume="1.0" />
+      <ContactSelect Path="Sound_effects/menu_select_click" Volume="1.0" />
+      <NewMessage Path="Sound_effects/Dasha_voice/Untitled2" Volume="1.0" />
       <Keyboard>
-        <Key1 Value="Sound_effects/Keyboard_clicks/typewriter_key_1" />
-        <Key2 Value="Sound_effects/Keyboard_clicks/keyboard_key_2" />
-        <Key3 Value="Sound_effects/Keyboard_clicks/keyboard_key_3" />
-        <Key4 Value="Sound_effects/Keyboard_clicks/keyboard_key_4" />
+        <Key1 Path="Sound_effects/Keyboard_clicks/typewriter_key_1" Volume="1.0" />
+        <Key2 Path="Sound_effects/Keyboard_clicks/keyboard_key_2" Volume="1.0" />
+        <Key3 Path="Sound_effects/Keyboard_clicks/keyboard_key_3" Volume="1.0" />
+        <Key4 Path="Sound_effects/Keyboard_clicks/keyboard_key_4" Volume="1.0" />
       </Keyboard>
     </Sounds>
 </Settings>

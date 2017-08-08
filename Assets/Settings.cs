@@ -24,11 +24,12 @@ namespace LudumDare39
 
         public static string MainTheme = "Sound_effects/Homestuck_-_Fuchsia_ruler";
 
-        public static string FailChar = "";         //"Sound_effects/typo"
-        public static string MessageSuccess = "";   //"Sound_effects/Message_sent_success"
-        public static string MessageTimeout = "";   //"Sound_effects/Message_sent_failure"
-        public static string ContactSelect = "";
-        public static List<string> Keyboard = new List<string>();
+        public static Pair<string, float> FailChar = new Pair<string, float>("", 0);
+        public static Pair<string, float> MessageSuccess = new Pair<string, float>("", 0);
+        public static Pair<string, float> MessageTimeout = new Pair<string, float>("", 0);
+        public static Pair<string, float> ContactSelect = new Pair<string, float>("", 0);
+        public static Pair<string, float> NewMessage = new Pair<string, float>("", 0);
+        public static List<Pair<string, float>> Keyboard = new List<Pair<string, float>>();
 
 
         public static void Init()
@@ -50,13 +51,28 @@ namespace LudumDare39
             DeltaTimeForOneSymbol = node["DeltaTimeForOneSymbol"].Attributes["Value"].AsFloat();
             MinTimeForOneSymbol = node["MinTimeForOneSymbol"].Attributes["Value"].AsFloat();
 
-            FailChar = node["Sounds"]["FailChar"].FirstAttribute().AsString("");
-            MessageSuccess = node["Sounds"]["MessageSuccess"].FirstAttribute().AsString("");
-            MessageTimeout = node["Sounds"]["MessageTimeout"].FirstAttribute().AsString("");
-            ContactSelect = node["Sounds"]["ContactSelect"].FirstAttribute().AsString("");
+            FailChar.First = node["Sounds"]["FailChar"].Attributes["Path"].AsString("");
+            FailChar.Second = node["Sounds"]["FailChar"].Attributes["Volume"].AsFloat();
+
+            MessageSuccess.First = node["Sounds"]["MessageSuccess"].Attributes["Path"].AsString("");
+            MessageSuccess.Second = node["Sounds"]["MessageSuccess"].Attributes["Volume"].AsFloat();
+
+            MessageTimeout.First = node["Sounds"]["MessageTimeout"].Attributes["Path"].AsString("");
+            MessageTimeout.Second = node["Sounds"]["MessageTimeout"].Attributes["Volume"].AsFloat();
+
+            ContactSelect.First = node["Sounds"]["ContactSelect"].Attributes["Path"].AsString("");
+            ContactSelect.Second = node["Sounds"]["ContactSelect"].Attributes["Volume"].AsFloat();
+
+            NewMessage.First = node["Sounds"]["NewMessage"].Attributes["Path"].AsString("");
+            NewMessage.Second = node["Sounds"]["NewMessage"].Attributes["Volume"].AsFloat();
+
             foreach(XmlNode keyNode in node["Sounds"]["Keyboard"].ChildNodes)
             {
-                Keyboard.Add(keyNode.FirstAttribute().AsString(""));
+                Pair<string, float> newKeyPair = new Pair<string, float>("", 0);
+                newKeyPair.First = keyNode.Attributes["Path"].AsString("");
+                newKeyPair.Second = keyNode.Attributes["Volume"].AsFloat();
+                Keyboard.Add(newKeyPair);
+
             }
         }
     }

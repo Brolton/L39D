@@ -52,6 +52,7 @@ public class AppController : MonoBehaviour
         bool needIndicate = MessagesController.AllContacts[contactId].SendNextQuestion();
         if (needIndicate)
         {
+            SoundController.Instance.PlayNewMsg();
             if (GetCurrentContactID() != contactId)
             {
                 _contactsController.TurnOnIndicatorForContact(contactId);

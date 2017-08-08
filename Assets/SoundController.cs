@@ -17,8 +17,9 @@ namespace LudumDare39
         AudioClip sendSuccess;
         AudioClip sendTimeout;
         AudioClip contactClick;
+        AudioClip newMessage;
 
-        List<AudioClip> keyboardType = new List<AudioClip>();
+        List<Pair<AudioClip, float>> keyboardType = new List<Pair<AudioClip, float>>();
 
         System.Random rand = new System.Random();
 
@@ -26,40 +27,48 @@ namespace LudumDare39
         {
             Instance = this;
             
-            failChar = (AudioClip)Resources.Load(Settings.FailChar);
-            sendSuccess = (AudioClip)Resources.Load(Settings.MessageSuccess);
-            sendTimeout = (AudioClip)Resources.Load(Settings.MessageTimeout);
-            contactClick = (AudioClip)Resources.Load(Settings.ContactSelect);
+            failChar = (AudioClip)Resources.Load(Settings.FailChar.First);
+            sendSuccess = (AudioClip)Resources.Load(Settings.MessageSuccess.First);
+            sendTimeout = (AudioClip)Resources.Load(Settings.MessageTimeout.First);
+            contactClick = (AudioClip)Resources.Load(Settings.ContactSelect.First);
+            newMessage = (AudioClip)Resources.Load(Settings.NewMessage.First);
 
-            foreach (string keyTypePath in Settings.Keyboard)
+            foreach (Pair<string, float> keyTypePath in Settings.Keyboard)
             {
-                keyboardType.Add((AudioClip)Resources.Load(keyTypePath));
+                Pair<AudioClip, float> keyboardTypeSound = new Pair<AudioClip, float>((AudioClip)Resources.Load(keyTypePath.First), keyTypePath.Second);
+                keyboardType.Add(keyboardTypeSound);
             }
         }
 
         public void PlayKeyboard()
         {
-            audioSource.PlayOneShot (keyboardType[rand.Next(keyboardType.Count)]);
+            Pair<AudioClip, float> keyboardTypeSound = keyboardType[rand.Next(keyboardType.Count)];
+            audioSource.PlayOneShot (keyboardTypeSound.First, keyboardTypeSound.Second);
         }
 
         public void PlayFailChar()
         {
-            audioSource.PlayOneShot (failChar);
+            audioSource.PlayOneShot (failChar, Settings.FailChar.Second);
         }
 
         public void PlaySendTimeout()
         {
-            audioSource.PlayOneShot (sendTimeout);
+            audioSource.PlayOneShot (sendTimeout, Settings.MessageTimeout.Second);
         }
 
         public void PlaySendSuccess()
         {
-            audioSource.PlayOneShot (sendSuccess);
+            audioSource.PlayOneShot (sendSuccess, Settings.MessageSuccess.Second);
         }
 
         public void PlayContactClick()
         {
-            audioSource.PlayOneShot (contactClick);
+            audioSource.PlayOneShot (contactClick, Settings.ContactSelect.Second);
+        }
+
+        public void PlayNewMsg()
+        {
+            audioSource.PlayOneShot (newMessage, Settings.NewMessage.Second);
         }
     }
 }
